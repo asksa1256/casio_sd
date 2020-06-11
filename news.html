@@ -1,0 +1,552 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1">
+<title>NEWS | CASIO Korea</title>
+<link href="images/favicon.ico" rel="shortcut icon">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+<link href="css/animate.css" type="text/css" rel="stylesheet">
+<script src="js/jquery-3.4.0.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/waypoints.min.js"></script>
+<script src="js/script.js"></script>
+<style>
+* {padding:0; margin:0;}
+a {text-decoration:none; color:inherit; cursor: pointer;}
+li {list-style:none;}
+html,body {font-family: 'Noto Sans KR', sans-serif;}
+
+
+/*header*/
+header {height:80px; border-bottom: 1px solid #f7f7f7;}
+.wrap {width:70%; margin:0 auto; overflow: hidden;}    
+.h_wrap {width:70%; margin:0 auto; overflow: hidden; height: 50px;}     
+.mobile {display: none;}   
+.logo {width:170px; height:50px; position:absolute; top:5px; overflow:hidden; z-index: 999;}
+.logo img {width:100%; margin-top:-30px; margin-left: -20px;}
+.lnb {overflow:hidden; float:right; margin-top:-30px; font-size:16px; z-index: 999;}
+.lnb>li {margin:50px 40px 0 40px; text-align:left; line-height:30px; float:left;}
+.lnb>li:nth-child(2) {border-bottom: 2px solid #1c3da6;}
+.lnb_sub {background:#F7F7F7; padding:20px; display:none; margin-top:10px; z-index: 999; position: absolute;}
+.lnb_sub>li {text-align:left; font-size:14px;}
+.search {position:absolute; top:20px; left:80px; animation:search 2s ease-in-out 3s forwards; opacity:0;}
+.search img {cursor:pointer; display:block; float:right; position:absolute; left:163px; top:7px;}
+
+/*lnb css*/
+.sm-link{
+    --uismLinkDisplay: var(--smLinkDisplay, inline-flex);   
+    --uismLinkTextColor: var(--smLinkTextColor);
+    --uismLinkTextColorHover: var(--smLinkTextColorHover);  
+    
+    display: var(--uismLinkDisplay);
+    color: var(--uismLinkTextColor);
+    position: relative;
+    overflow: hidden;
+	
+	--smLinkPadding: 10px 15px;
+    --smLinkLineWeight: 2px;
+    --smLinkLineColor: #1c3da6;
+    --smLinkTextColor: #000;
+    --smLinkTextColorHover: #1b255a;
+}
+
+a.sm-link{text-decoration: none;}
+.sm-link__label{display: block;}
+
+/* sm-link_padding-bottom */ 
+.sm-link_padding-bottom{
+    --uismLinkLineWeight: var(--smLinkLineWeight, 2px);
+    --uismLinkLineColor: var(--smLinkLineColor, #000);  
+    
+    padding-bottom: var(--uismLinkLineWeight);  
+    position: relative;
+}
+
+.sm-link_padding-bottom::after{
+  content: "";
+  width: 100%;
+  height: var(--uismLinkLineWeight);
+  background-color: var(--uismLinkLineColor); 
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+/* effect 3 */
+.sm-link3::after{
+  transform: translate3d(-100%, 0, 0);
+  transition: transform .3s ease-in-out;
+}
+
+.sm-link3:hover::after{
+  transform: translate3d(0, 0, 0);
+}
+
+
+/*contents*/
+#contents {position: absolute; top:11%;}
+#contents h1 {margin-bottom:30px;}
+.year {position: absolute; top:23px; left:21.5%; border:none;}    
+.left {float:left; width:45%;}
+.right {float:right; width:45%;}
+.left img {width: 100%;}    
+.n_title {font-size: 32px; font-weight: bold; }
+.n_date {float: right;}
+.n_content {margin-top:20px; float:left; text-align: justify;}    
+.more {text-align: center; width:120px; height:40px; border: 1px solid #1c3da6; line-height: 40px; position: absolute; top:385px; right:450px; background: #fff;}
+.more a {display: block; transition: 0.3s;}
+.more a:hover {background-color: #1c3da6; color:#fff;}    
+.wrap2 {width:60%; margin: 0 auto;}
+.notice {padding:20px; border:1px solid #ddd; margin-top:70px; text-align: justify; color:#555; font-style: italic; margin-bottom: 80px;}
+.notice h4 {font-weight: lighter; text-align: center;}
+.notice_content {font-size:14px;}    
+    
+.article {margin: 0 auto; font-size:14px; text-align: left; padding-bottom:20px; border-bottom: 2px dotted #ddd; padding-top:20px;}
+.article tr {border: 2px solid #000;}
+.article tr:hover {cursor: pointer; color:#777;}
+.article td:first-child {width:300px; font-size: 12px; font-weight: bold;}
+.article td:nth-child(2) {width:50px;}
+.article td:nth-child(2) img {margin-right:50px; margin-top:5px; margin-left:-150px;}
+.article td:last-child {width:600px; }    
+    
+/*years2*/
+.years2 {overflow: hidden; position: absolute; left: 44%; margin-top: 60px;}
+.years2 li {float:left; font-size:16px; width: 40px; text-align: center;}
+.years2 li a:hover {text-decoration: underline;}
+.years2 li:nth-child(odd) {color:#1c3da6; font-weight: bold;}
+.years2 li:nth-child(even) {font-size:13px; margin-top:3px;}    
+    
+    
+/*top*/
+.top {position: fixed; width:60px; z-index: 999; right:0%; bottom:0%; display: block;}
+    
+    
+/*search popup*/
+.s_pop {position: fixed; top:0; left:0; width:100%; height:100%; z-index: 9999; display: none;}
+.s_pop_bg {background: #333; top:0; left:0; width:100%; height:100%; z-index: 9999; position: absolute; opacity:0.5;}
+.s_pop input {position: absolute; top:44%; left:38%; z-index: 99999;}
+.s_pop img {position: absolute; top:45%; right:37.5%; width:40px; z-index: 99999;}
+.s_pop input {border-bottom: 3px solid #1c3da6 !important; border:none; background-color: transparent; width:310px; height:10px; font-size:20px; padding:20px; color:#fff; font-family: 'Noto Sans KR', sans-serif;}    
+
+    
+/*footer*/
+footer {position: absolute; bottom:-110%; width: 100%; height:120px; background-color: #1c3da6;}
+.f_logo {margin-top:30px;}
+.f_logo img {width:90px;}
+.footer_left {float:left; color:#fff; font-size:12px; margin-top:5px;}
+.footer_left a:hover {text-decoration: underline;}
+.footer_right {float:right; color:#fff; font-size: 12px; text-align: right; margin-top:-10px;}
+.footer_right img {width:20px;}
+.copyright {color:#fff; text-align: center; margin-top:-5px;}
+.country li {float:left; margin-left:5px;}
+    
+    
+    
+/****************media query****************/
+    @media (max-width:991px) {
+    /*header*/
+    header {height:80px; position:fixed; background:#fff; width:100%; z-index:999999; overflow:hidden; border-bottom:3px solid #1c3da6; margin-bottom: 50px;}
+    .wrap {height: 800px;}
+    .logo {width:170px; height:80px; position:absolute; left: 50%; transform: translateX(-50%); overflow:hidden; margin-top:-30px;}    
+    .logo img {width:100%; margin-top:0px;}    
+    .lnb {display:none;}    
+    .search {position:absolute;}    
+    .search>img {width:40px; margin-left:0;}    
+    .search>input {display:none;}    
+    .mobile {display: block;}    
+    .m_search {float: right; width: 25px; height: 25px; position: relative; top:25px; cursor: pointer; overflow: hidden;}
+    .m_search img {width: 25px;}    
+    .ham, .close {position:absolute; width: 100%; left:20px; top:13px;}    
+    .ham img, .close img {width:30px; cursor: pointer;}    
+    .close {display:none;}
+    .mobile_lnb {background:#fff; position:fixed; z-index:99999; top:60px; left:0; width:100%; height:100%; display:none; border-bottom:3px solid #1c3da6; padding: 0;}        
+    .mobile_lnb>li {float:left; font-size:24px; font-weight:bold; margin:15px 6%;}  
+    .mobile_lnb_sub { display:none; padding: 0;}        
+    .mobile_lnb_sub>li {font-size:20px; font-weight:400; margin:15px 0;}
+           
+    
+    /*contents*/
+    #contents {position: relative; top:130px;}        
+    #contents h1 {margin-bottom:30px; position: absolute;}        
+    .year {position: relative; top:15px; left:100px; border:none; margin-bottom: 30px;}
+    .left {float: none; width: 100%;}        
+    .right {float: none; width: 100%;}        
+    .left, .right {margin-top: 20px;}         
+    .left img {width: 420px;}      
+    .n_title {font-size: 28px; text-align: justify; width: 100%;}        
+    .n_date {float: none; margin-top: 10px; margin-bottom: 40px;}        
+    .n_content {margin-top:20px; float:none; text-align: justify; width: 100%;}     
+    .more {text-align: center; width:120px; height:40px; border: 1px solid #1c3da6; line-height: 40px; position: relative; top:40px; right:32%; float: right;}    
+    .more a {display: block; transition: 0.3s;}     
+    .more a:hover {background-color: #1c3da6; color:#fff;}
+   
+    .wrap2 {width:70%; margin: 0 auto; position: relative; top:-30px;}
+   
+    .notice {padding:20px; border:1px solid #ddd; margin-top:90px; text-align: justify; color:#555; font-style: italic; margin-bottom: 40px;}    
+    .notice h4 {font-weight: lighter; text-align: center;}    
+    .notice_content {font-size:14px;}
+   
+    .article {margin: 0 auto; font-size:14px; text-align: left; border-bottom: 2px dotted #ddd; padding: 30px 0;}   
+    .article tr {border: 2px solid #000;}   
+    .article tr:hover {cursor: pointer; color:#777;}        
+    .article td:first-child {width:100px; font-size: 12px; font-weight: bold; text-align: center;}        
+    .article td:nth-child(2) {width:50px;}        
+    .article td:nth-child(2) img {margin-left:-75px; margin-top: 70px;}        
+    .article td:last-child {width:300px; padding-left:50px; text-align: right; font-size: 14px; padding-top: 20px;}        
+    .article td span:last-child {display: none !important;}        
+    .article:nth-child(n+5):nth-child(n+7) {display: none;}        
+    .years2 {overflow: hidden; position: absolute; left: 20%; margin: 60px 0;}
+  
+    
+    /*footer*/
+    footer {position: absolute; bottom: -190%;}            
+    .footer_left {display: none;}        
+    .f_logo {margin-top: 50px;float: left;}        
+    .footer_right {float: right; margin-top: 40px;}        
+    .copyright {display: none;}        
+    .f_wrap {width:70%; margin:0 auto; overflow: hidden; height: 120px;}    
+}
+</style>
+</head>
+
+<body>
+<header>
+<div class="h_wrap">
+	<div class="logo">
+    	<a href="index.html"><img src="images/logo.png" alt="casio_logo"></a>
+    </div>
+    
+    <ul class="lnb">
+    	<li>
+           <div class="section_item">
+                <a href="goods.html" class="sm-link sm-link_padding-bottom sm-link3"><span class="sm-link__label">제품<span style="font-size:10px; display:block; float:right; margin-left:5px; color:#1c3da6;">&#x25BC;</span></span></a>
+           </div>
+        	<ul class="lnb_sub">
+            	<li><a href="goods.html" class="sm-link sm-link_padding-bottom sm-link3">시계</a></li>
+                <li><a href="goods.html" class="sm-link sm-link_padding-bottom sm-link3">전자 악기</a></li>
+                <li><a href="goods.html" class="sm-link sm-link_padding-bottom sm-link3">디지털 카메라</a></li>
+                <li><a href="goods.html" class="sm-link sm-link_padding-bottom sm-link3">계산기</a></li>
+                <li><a href="goods.html" class="sm-link sm-link_padding-bottom sm-link3">기타</a></li>
+            </ul><!--lnb_sub end-->
+        </li>
+        
+        <li>
+            <div class="section_item">
+                <a href="#"><span class="sm-link__label">NEWS</span></a>
+            </div>
+        </li>
+        
+        <li>
+            <div class="section_item">
+                <a href="corporate.html" class="sm-link sm-link_padding-bottom sm-link3"><span class="sm-link__label">회사정보</span></a>
+            </div>
+        </li>
+        
+        <li>
+            <div class="section_item">
+                <a href="http://leesangdal.dothome.co.kr/qa" class="sm-link sm-link_padding-bottom sm-link3"><span class="sm-link__label">고객지원<span style="font-size:10px; display:block; float:right; margin-left:5px; color:#1c3da6;">&#x25BC;</span></span></a>
+            </div>
+        	<ul class="lnb_sub">
+            	<li><a href="http://leesangdal.dothome.co.kr/qa" class="sm-link sm-link_padding-bottom sm-link3">FAQ</a></li>
+                <li><a href="http://leesangdal.dothome.co.kr/qa" class="sm-link sm-link_padding-bottom sm-link3">설명서</a></li>
+                <li><a href="http://leesangdal.dothome.co.kr/qa" class="sm-link sm-link_padding-bottom sm-link3">다운로드</a></li>
+                <li><a href="http://leesangdal.dothome.co.kr/qa" class="sm-link sm-link_padding-bottom sm-link3">제품 수리/부품</a></li>
+                <li><a href="http://leesangdal.dothome.co.kr/qa" class="sm-link sm-link_padding-bottom sm-link3">제품 구매 정보</a></li>
+            </ul><!--lnb_sub end-->
+        </li>
+        
+        <li><a href="#"><img src="images/zoom.png" alt="search"></a></li>
+    </ul><!--lnb end-->
+    
+    
+    <!--모바일 메뉴-->
+    <div class="mobile">
+    	<figure class="ham">
+        	<img src="images/ham.png" alt="menu" class="ham">
+        </figure>
+        <figure class="close">
+        	<img src="images/close.png" alt="close">
+        </figure>
+        <figure class="m_search">
+            <img src="images/zoom.png" alt="search">
+        </figure>
+        
+        <ul class="mobile_lnb">
+            <li>
+                <div class="section_item">
+                    <a href="#" class="sm-link sm-link_padding-bottom sm-link3"><span class="sm-link__label">제품<span style="font-size:15px; display:block; float:right; margin-left:10px; margin-top:15px; color:#1c3da6;">&#x25BC;</span></span></a>
+                </div>
+                <ul class="mobile_lnb_sub">
+                    <li><a href="goods.html" class="sm-link sm-link_padding-bottom sm-link3">시계</a></li>
+                    <li><a href="goods.html" class="sm-link sm-link_padding-bottom sm-link3">전자 악기</a></li>
+                    <li><a href="goods.html" class="sm-link sm-link_padding-bottom sm-link3">디지털 카메라</a></li>
+                    <li><a href="goods.html" class="sm-link sm-link_padding-bottom sm-link3">계산기</a></li>
+                    <li><a href="goods.html" class="sm-link sm-link_padding-bottom sm-link3">기타</a></li>
+                </ul><!--mobile_lnb_sub end-->
+            </li>
+        
+            <li>
+                <div class="section_item">
+                    <a href="news.html" class="sm-link sm-link_padding-bottom sm-link3"><span class="sm-link__label">NEWS</span></a>
+                </div>
+            </li>
+            
+            <li>
+                <div class="section_item">
+                    <a href="corporate.html" class="sm-link sm-link_padding-bottom sm-link3"><span class="sm-link__label">회사정보</span></a>
+                </div>
+            </li>
+            
+            <li>
+               <div class="section_item">
+                    <a href="#" class="sm-link sm-link_padding-bottom sm-link3"><span class="sm-link__label">고객지원<span style="font-size:15px; display:block; float:right; margin-left:10px; margin-top:15px; color:#1c3da6;">&#x25BC;</span></span></a>
+               </div>
+                <ul class="mobile_lnb_sub">
+                    <li><a href="http://leesangdal.dothome.co.kr/qa" class="sm-link sm-link_padding-bottom sm-link3">FAQ</a></li>
+                    <li><a href="http://leesangdal.dothome.co.kr/qa" class="sm-link sm-link_padding-bottom sm-link3">설명서</a></li>
+                    <li><a href="http://leesangdal.dothome.co.kr/qa" class="sm-link sm-link_padding-bottom sm-link3">다운로드</a></li>
+                    <li><a href="http://leesangdal.dothome.co.kr/qa" class="sm-link sm-link_padding-bottom sm-link3">제품 수리/부품</a></li>
+                    <li><a href="http://leesangdal.dothome.co.kr/qa" class="sm-link sm-link_padding-bottom sm-link3">제품 구매 정보</a></li>
+                </ul><!--mobile_lnb_sub end-->
+            </li>
+        </ul><!--mobile_lnb end-->
+    </div><!-- 모바일 메뉴 끝 -->
+</div> <!-- h_wrap end -->
+</header> <!-- header end -->
+
+
+
+
+
+<div id="contents">
+  <div class="wrap">
+   <h1>NEWS</h1>
+   <select class="year">
+       <option>2020</option>
+       <option>2019</option>
+       <option>2018</option>
+   </select>
+   
+    <div class="left">
+        <a><img src="images/news.png" alt="news"></a>    
+    </div>
+    
+	<div class="right">
+	    <p class="n_title">Casio to Release MR-G Shougeki-Maru Inspired by Samurai Kabuto</p>
+	    <p class="n_date">March 19, 2020</p>
+	    <p class="n_content">Tokyo, March 19, 2020 — Casio Computer Co., Ltd. announced today the release of a new addition to the MR-G Series, the flagship line of the G-SHOCK brand of shock-resistant watches…</p>
+        <div class="more"><a href="#">more</a></div>
+	</div>	
+  </div> <!-- wrap end -->
+  
+  <div class="wrap2">
+   <div class="notice">
+       <h4>Notice</h4>
+       <p class="notice_content">Details are based on information from product announcement. If a product is discontinued from manufacture or sales, specifications, price, release date, or notation may be changed without notice.</p>
+   </div>
+    <div class="other">
+	    <table class="article">
+	        <tr>
+	            <td>March 19, 2020</td>
+	            <td><a><img src="images/product.png" alt="product"></a></td>
+	            <td><span style="display:block; float:left; margin-left:-80px;">Casio to Release Vivid MT-G Evoking Volcanic Lightning</span>
+	                <span style="display:block; float:right; font-size:10px; color:#1c3da6; margin-top:4px;">&#x25B6;</span>
+	            </td>
+	        </tr>
+	    </table>
+	    <table class="article">
+	        <tr>
+	            <td>March 19, 2020</td>
+	            <td><a><img src="images/product.png" alt="product"></a></td>
+	            <td><span style="display:block; float:left; margin-left:-80px;">Casio to Release G-SHOCK Full Metal Construction GMW-B5000 with Grid Design</span>
+	                <span style="display:block; float:right; font-size:10px; color:#1c3da6; margin-top:4px;">&#x25B6;</span>
+	            </td>
+	        </tr>
+	    </table>
+	    <table class="article">
+	        <tr>
+	            <td>March 19, 2020</td>
+	            <td><a><img src="images/product.png" alt="product"></a></td>
+	            <td><span style="display:block; float:left; margin-left:-80px;">Casio to Release G-STEEL with New Carbon Core Guard Structure</span>
+	                <span style="display:block; float:right; font-size:10px; color:#1c3da6; margin-top:4px;">&#x25B6;</span>
+	            </td>
+	        </tr>
+	    </table>
+	    <table class="article">
+	        <tr>
+	            <td>March 19, 2020</td>
+	            <td><a><img src="images/product.png" alt="product"></a></td>
+	            <td><span style="display:block; float:left; margin-left:-80px;">Casio to Release G-STEEL with New Carbon Core Guard Structure</span>
+	                <span style="display:block; float:right; font-size:10px; color:#1c3da6; margin-top:4px;">&#x25B6;</span>
+	            </td>
+	        </tr>
+	    </table>
+	    <table class="article">
+	        <tr>
+	            <td>March 19, 2020</td>
+	            <td><a><img src="images/product.png" alt="product"></a></td>
+	            <td><span style="display:block; float:left; margin-left:-80px;">Casio to Release New G-SHOCK in Unisex Sizes for Improved Wrist-Fit</span>
+	                <span style="display:block; float:right; font-size:10px; color:#1c3da6; margin-top:4px;">&#x25B6;</span>
+	            </td>
+	        </tr>
+	    </table>
+	    <table class="article">
+	        <tr>
+	            <td>February 26, 2020</td>
+	            <td><a><img src="images/product.png" alt="product"></a></td>
+	            <td><span style="display:block; float:left; margin-left:-80px;">Casio to Release G-SHOCK Watch with Heart Rate Monitor and GPS Functionality</span>
+	                <span style="display:block; float:right; font-size:10px; color:#1c3da6; margin-top:4px;">&#x25B6;</span>
+	            </td>
+	        </tr>
+	    </table>
+	    <table class="article">
+	        <tr>
+	            <td>February 20, 2020</td>
+	            <td><a><img src="images/product.png" alt="product"></a></td>
+	            <td><span style="display:block; float:left; margin-left:-80px;">Casio to Release G-SHOCK MR-G × BRUCE LEE Collaboration Model</span>
+	                <span style="display:block; float:right; font-size:10px; color:#1c3da6; margin-top:4px;">&#x25B6;</span>
+	            </td>
+	        </tr>
+	    </table>
+	    <table class="article">
+	        <tr>
+	            <td>February 18, 2020</td>
+	            <td><a><img src="images/product.png" alt="product"></a></td>
+	            <td><span style="display:block; float:left; margin-left:-80px;">Casio Renews Partnership with Formula One(TM) Team Scuderia AlphaTauri</span>
+	                <span style="display:block; float:right; font-size:10px; color:#1c3da6; margin-top:4px;">&#x25B6;</span>
+	            </td>
+	        </tr>
+	    </table>
+	    <table class="article">
+	        <tr>
+	            <td>February 10, 2020</td>
+	            <td><a><img src="images/product.png" alt="product"></a></td>
+	            <td><span style="display:block; float:left; margin-left:-80px;">Casio to Release New Handheld Terminals for Quick and Efficient Operations</span>
+	                <span style="display:block; float:right; font-size:10px; color:#1c3da6; margin-top:4px;">&#x25B6;</span>
+	            </td>
+	        </tr>
+	    </table>
+	    <table class="article">
+	        <tr>
+	            <td>January 27, 2020</td>
+	            <td><a><img src="images/product.png" alt="product"></a></td>
+	            <td><span style="display:block; float:left; margin-left:-80px; width:550px;">Casio to Release G-SHOCK Triple Graph Dial GM-6900 Series Featuring Stainless Steel Bezel with Quality Finish</span>
+	                <span style="display:block; float:right; font-size:10px; color:#1c3da6; margin-top:15px;">&#x25B6;</span>
+	            </td>
+	        </tr>
+	    </table>
+	    <table class="article">
+	        <tr>
+	            <td>January 22, 2020</td>
+	            <td><a><img src="images/product.png" alt="product"></a></td>
+	            <td><span style="display:block; float:left; margin-left:-80px;">Casio to Release EDIFICE Models with Schedule Timer and Automatic Time Zone Adjustment</span>
+	                <span style="display:block; float:right; font-size:10px; color:#1c3da6; margin-top:4px;">&#x25B6;</span>
+	            </td>
+	        </tr>
+	    </table>
+	</div><!-- other end-->
+	
+	<ul class="years2">
+	   <li><a>2020</a></li>
+	   <li>|</li>
+	   <li><a>2019</a></li>
+	   <li>|</li>
+	   <li><a>2018</a></li>
+	</ul><!--years2 end-->
+</div> <!-- wrap2 end -->
+  
+<div class="top">
+    <a href="#"><img src="images/top.png" alt="top"></a>
+</div>
+</div> <!-- contents end -->
+
+
+<!-- search popup-->
+<div class="s_pop">
+    <div class="s_pop_bg"></div>
+    <a><img src="images/close.png" alt="close" style="position: absolute; top:0; right:0; z-index: 9999;" class="close"></a>
+    <input>
+    <a><img src="images/zoom2.png" alt="search" class="search2"></a>
+</div>
+<!-- search popup end -->
+
+
+<footer>
+    <div class="f_wrap">
+        <div class="footer_bg">
+            <div class="f_logo">
+              <a href="#"><img src="images/f_logo.png" alt="casio"></a>
+            </div>
+
+            <div class="footer_left">
+                <p>© 2020 CASIO COMPUTER CO., LTD.</p>
+                <a><i>Privacy Policy</i></a>
+                <span style="margin:0 3px;">|</span>
+                <a><i>Terms of Use</i></a>
+                <span style="margin:0 3px;">|</span>
+                <a>사이트 맵</a>
+            </div>
+
+            <div class="footer_right">
+                <p>KOREA</p>
+                <ul class="country">
+                    <li><a><img src="images/globe.png" alt="language"></a></li>
+                    <li><i>국가 또는 지역 선택</i></li>
+                </ul>
+            </div>
+            
+            <p class="copyright">Copyright © CASIO - All Rights Reserved.</p>
+        </div><!--footer_bg end-->
+    </div><!--f_wrap end-->
+</footer><!-- footer end -->
+
+<script>
+$(document).ready(function(){
+	//lnb
+	$(".lnb li").mouseover(function(){
+		$(this).children(".lnb_sub").stop().slideDown();	
+	});
+	
+	$(".lnb li").mouseleave(function(){
+		$(this).children(".lnb_sub").stop().slideUp();	
+	});
+	
+    $(".lnb>li:last-child").click(function(){
+        $(".s_pop").show();
+    })
+    
+    $(".close").click(function(){
+        $(".s_pop").hide();
+    })
+    
+    //ham
+	$(".ham").click(function(){
+		$(".mobile_lnb").stop().slideDown('slow');	
+		$(".ham").hide('slow');
+		$(".close").show('slow');
+	});
+	
+	$(".close").click(function(){
+		$(".mobile_lnb").stop().slideUp('slow');	
+		$(".close").hide('slow');
+		$(".ham").show('slow');
+	});
+    
+    
+    //mobile_lnb
+	$(".mobile_lnb li").mouseover(function(){
+		$(this).children(".mobile_lnb_sub").stop().slideDown();	
+	});
+	
+	$(".mobile_lnb_sub li").mouseleave(function(){
+		$(this).children(".mobile_lnb_sub").stop().slideUp();	
+	});
+});
+
+
+</script>
+</body>
+</html>

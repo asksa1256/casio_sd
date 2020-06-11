@@ -1,0 +1,693 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+<meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>제품 | CASIO Korea</title>
+<link href="images/favicon.ico" rel="shortcut icon">
+<link href="https://fonts.googleapis.com/css?family=Noto+Sans+KR:400,700" rel="stylesheet">
+<link rel="stylesheet" type="text/css" href="slick/slick.css"/>
+<link href="css/animate.css" type="text/css" rel="stylesheet">
+<script src="js/jquery-3.4.0.js"></script>
+<script src="js/jquery-ui.js"></script>
+<script src="js/waypoints.min.js"></script>
+<script src="js/script.js"></script>
+<style>
+/* CSS Document */
+
+a {text-decoration:none; color:inherit; cursor: pointer;}
+li {list-style:none;}
+html,body {font-family: 'Noto Sans KR', sans-serif; padding:0; margin:0; scroll-behavior: smooth;}
+
+
+
+/*header*/
+header {height:15px; margin-bottom: -90px;}
+.wrap {width:1180px; margin:0 auto; overflow: hidden;}
+.logo {width:170px; height:50px; position:absolute; top:5px; overflow:hidden; z-index: 999;}
+.logo img {width:100%; margin-top:-30px; margin-left: -20px;}
+.lnb {overflow:hidden; float:right; margin-top:-30px; font-size:16px; z-index: 999;}
+.lnb>li {margin:50px 40px 0 40px; text-align:left; line-height:30px; float:left;}
+.lnb>li:first-child {border-bottom: 2px solid #1c3da6;}
+.lnb_sub {background:#F7F7F7; padding:20px; display:none; margin-top:10px; position: absolute; z-index: 999;}
+.lnb_sub>li {text-align:left; font-size:14px;}
+.search {position:absolute;}
+.search img {cursor:pointer; display:block;}
+
+
+
+/*lnb css*/
+.sm-link{
+    --uismLinkDisplay: var(--smLinkDisplay, inline-flex);   
+    --uismLinkTextColor: var(--smLinkTextColor);
+    --uismLinkTextColorHover: var(--smLinkTextColorHover);  
+    
+    display: var(--uismLinkDisplay);
+    color: var(--uismLinkTextColor);
+    position: relative;
+    overflow: hidden;
+	
+	--smLinkPadding: 10px 15px;
+    --smLinkLineWeight: 2px;
+    --smLinkLineColor: #1c3da6;
+    --smLinkTextColor: #000;
+    --smLinkTextColorHover: #1b255a;
+}
+
+a.sm-link{
+    text-decoration: none;
+}
+
+.sm-link__label{
+  display: block;
+}
+
+/* sm-link_padding-bottom */ 
+.sm-link_padding-bottom{
+    --uismLinkLineWeight: var(--smLinkLineWeight, 2px);
+    --uismLinkLineColor: var(--smLinkLineColor, #000);  
+    
+    padding-bottom: var(--uismLinkLineWeight);  
+    position: relative;
+}
+
+.sm-link_padding-bottom::after{
+  content: "";
+  width: 100%;
+  height: var(--uismLinkLineWeight);
+    background-color: var(--uismLinkLineColor);
+    
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+
+/* effect 3 */
+.sm-link3::after{
+  transform: translate3d(-100%, 0, 0);
+  transition: transform .3s ease-in-out;
+}
+
+.sm-link3:hover::after{
+  transform: translate3d(0, 0, 0);
+}
+
+
+    
+#contents {width:100%; height:100%; position: absolute; z-index: -1;}
+/*slidershow*/
+
+.slidershow {
+    width: 100%;
+    height:600px;
+    overflow: hidden;
+    }
+.middle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.navigation {
+    position:absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+    .dot{
+        width:10px;
+        height:10px;
+        border: 2px solid #1c3da6;
+        border-radius: 50px;
+        margin: 6px;
+        cursor:pointer;
+        transition: 0.4s;
+    }
+    .dot:hover{
+        background: #1c3da6;
+        border-color: #1c3da6;
+    }
+    
+    input[name="r"]{
+        position: absolute;
+        visibility: hidden;
+    }
+    
+    .slides{
+        width:500%;
+        height:600px;
+        display:flex;
+    }
+    
+    .slide {
+        width: 20%;
+        transition: 0.6s;
+    }
+    .slide img {width:100%; height:600px;}
+
+    #r1:checked ~ .s1{
+        margin-left: 0;
+    }
+    #r2:checked ~ .s1{
+        margin-left: -20%;
+    }
+    #r3:checked ~ .s1{
+        margin-left: -40%;
+    }
+    #r4:checked ~ .s1{
+        margin-left: -60%;
+    }
+    #r5:checked ~ .s1{
+        margin-left: -80%;
+    }
+
+
+
+/*list*/
+#list {width:70%; position: relative; left:15%; top:87%; height:100%; margin: 0 !important;}
+/* list lnb */
+    .con_lnb {overflow: hidden; position: relative; width:100%; left:-40px;}
+    .con_lnb li {float: left; display: block; width:20%; height:50px; text-align: center; line-height: 50px;}
+    .con_lnb li:first-child {background-color: #1c3da6; color:#fff;}
+    .con_lnb li:hover {background-color: #1c3da6; color:#fff; transition: 0.3s;}
+    .con_lnb_sub1 {width:100%; height:50px; position: relative; overflow: hidden; margin-top: -20px; left:-40px;}
+    .con_lnb_sub1>li {float: left; width:12.5%; text-align: center; display: block; line-height: 50px; transition: 0.3s;}
+    .con_lnb_sub1>li:hover {background-color: #1c3da6; color:#fff;}
+    
+    
+/* goods */
+    .goods {width:100%; position: relative; display: inline-block;}
+    h2 {margin: 20px 0;}
+    .box {width:25%; float:left; box-sizing:border-box; overflow:hidden; height:320px; text-align: center; transition: 0.4s;}
+    .box:hover {background-color: #f7f7f7;}
+    .sub_box {border:1px solid #fff; width:90%; position: relative; top:15px; left:14px; padding-bottom:20px;}
+    
+    #sel1, #sel2 {height:30px; border:none; margin-right:30px;}
+    
+    .page {position: relative; width: 20%; margin: 50px auto;}
+    .page li {margin:0 10px; float:left;}
+    .page li:first-child:hover, .page li:last-child:hover {color:#1c3da6; text-decoration: none;}
+    .page li:hover {text-decoration: underline;}
+    .page li:nth-child(2) {text-decoration: underline;}
+    
+    
+    /*top*/
+    .top {position: fixed; width:60px; z-index: 999; right:0%; bottom:0%; display: block;}
+
+    
+    /*search popup*/
+    .s_pop {position: fixed; top:0; left:0; width:100%; height:100%; z-index: 9999; display: none;}
+    .s_pop_bg {background: #333; top:0; left:0; width:100%; height:100%; z-index: 9999; position: absolute; opacity:0.5;}
+    .s_pop input {position: absolute; top:44%; left:38%; z-index: 99999;}
+    .s_pop img {position: absolute; top:45%; right:37.5%; width:40px; z-index: 99999; }
+    .s_pop input {border-bottom: 3px solid #1c3da6 !important; border:none; background-color: transparent; width:310px; height:10px; font-size:20px; padding:20px; color:#fff; font-family: 'Noto Sans KR', sans-serif;}
+    
+    
+    
+    /*footer*/
+    footer {position: absolute; bottom: -180%; width: 100%; height:120px; background-color: #1c3da6;}
+    .f_logo {margin-top:30px;}
+    .f_logo img {width:90px;}
+    .footer_left {float:left; color:#fff; font-size:12px; margin-top:-8px;}
+    .footer_left a:hover {text-decoration: underline;}
+    .footer_right {float:right; color:#fff; font-size: 12px; text-align: right; margin-top:-30px;}
+    .footer_right img {width:20px;}
+    .copyright {color:#fff; text-align: center; margin-top:-10px;}
+    .country li {float:left; margin-left:5px;}
+    .fl_2 {margin-top: -10px;}
+
+    
+    
+    
+/****************media query****************/
+    @media screen and (min-width: 992px) and (max-width:1920px) {
+        .mobile {display:none;}	
+    }
+    
+    
+    
+    @media (max-width: 991px) {
+    body {margin: 0; padding: 0; z-index: -1; position: relative;}
+    .wrap {width: 100%;}
+        
+	/*header*/
+    header {height:80px; position:fixed; background:#fff; width:100%; z-index:999999; overflow:hidden; border-bottom:3px solid #1c3da6; margin-bottom: 50px; margin-top: -16px;}
+    .logo {width:170px; height:80px; position:absolute; overflow:hidden; margin-top:-30px; left: 50%; transform: translateX(-50%);}    
+    .logo img {width:100%; margin-top:0px;}       
+    .lnb {display:none;}
+    .m_search {float: right; width: 25px; height: 25px; overflow: hidden; position: relative; right: 0; top:10px; cursor: pointer;} 
+    .m_search img {width: 25px;}    
+    .ham, .close {position:absolute; width: 100%; left:0px; top:5px;} .ham img, .close img {width:30px; cursor: pointer;}
+    .close {display:none;}
+    .mobile_lnb {background:#fff; position:fixed; z-index:99999; top:60px; left:0; width:100%; height:100%; display:none; border-bottom:3px solid #1c3da6; padding: 0;}   
+    .mobile_lnb>li {float:left; font-size:24px; font-weight:bold; margin:15px 6%;}    
+    .mobile_lnb_sub { display:none; padding: 0;}
+    .mobile_lnb_sub>li {font-size:20px; font-weight:400; margin:15px 0;}
+    
+    /*contents*/
+    #contents {width:100%; height:500px; position: relative;}
+    .slide{padding-top: 110px;}  
+    .slide img {width:100%; height:300px;}
+    .dot {position: relative; top:-14vh; z-index: 999;}
+    
+    /*list*/    
+    #list{width:100%; position: relative; top:60vh; left:0; font-weight: bold;} 
+    .con_lnb {font-size: 16px;}
+    .con_lnb li {display: inline-block; width: 33.3%;}
+    .con_lnb li:nth-child(4),
+    .con_lnb li:nth-child(5) {width: 50%;}
+    .con_lnb li a, .con_lnb_sub1 li a {display: block;}
+    .con_lnb_sub1 {width: 100%; font-size: 14px; margin-top: 20px; overflow: visible;}
+    .con_lnb_sub1 li {display: inline-block; width: 25%;}
+    
+    
+    /*goods*/    
+    .goods {width:100%; position: absolute; top:150%; left:0; display: inline-block; padding: 0;}    
+    .goods select, .goods h2 {margin-left: 30px;}
+    .boxes{width: 100%; height: 250px; margin-top: 30px;}
+    .box {width:50%; height: 250px;}
+    .sub_box{border: none; position: relative; margin-top: -20px;}
+    .box img, .box h4 {margin-right: 10px;}
+    .box h4 {font-size: 14px;}  
+    .box img[alt="watch"] {width: 180px; position: relative; display: block; left: 0px;}
+        
+    /* page */
+    .page {position: absolute; width: 100%; top: 330vh; left: 50%; transform: translateX(-30%);}
+        
+    footer {position: absolute; width: 100%; bottom: -310vh; height:80px; background-color: #1c3da6;}
+    .copyright {display: none;}
+    .footer_left {display: none;}
+    .f_logo {margin-top: 25px; position: absolute; left: 50%; transform: translateX(-50%);}
+    .footer_right{display: none;}
+}
+</style>
+</head>
+
+<body>
+<header>
+<div class="wrap">
+	
+	<div class="logo">
+    	<a href="index.html"><img src="images/logo.png" alt="casio_logo"></a>
+    </div>
+    
+    <ul class="lnb">
+    	<li><div class="section_item"><a href="#"><span class="sm-link__label">제품<span style="font-size:10px; display:block; float:right; margin-left:5px; color:#1c3da6;">&#x25BC;</span></span></a></div>
+        	<ul class="lnb_sub">
+            	<li><a href="goods.html" class="sm-link sm-link_padding-bottom sm-link3">시계</a></li>
+                <li><a href="goods.html" class="sm-link sm-link_padding-bottom sm-link3">전자 악기</a></li>
+                <li><a href="goods.html" class="sm-link sm-link_padding-bottom sm-link3">디지털 카메라</a></li>
+                <li><a href="goods.html" class="sm-link sm-link_padding-bottom sm-link3">계산기</a></li>
+                <li><a href="goods.html" class="sm-link sm-link_padding-bottom sm-link3">기타</a></li>
+            </ul>
+        </li>
+        <li><div class="section_item"><a href="news.html" class="sm-link sm-link_padding-bottom sm-link3"><span class="sm-link__label">NEWS</span></a></div></li>
+        <li><div class="section_item"><a href="corporate.html" class="sm-link sm-link_padding-bottom sm-link3"><span class="sm-link__label">회사정보</span></a></div></li>
+        <li><div class="section_item"><a href="http://leesangdal.dothome.co.kr/qa" class="sm-link sm-link_padding-bottom sm-link3"><span class="sm-link__label">고객지원<span style="font-size:10px; display:block; float:right; margin-left:5px; color:#1c3da6;">&#x25BC;</span></span></a></div>
+        	<ul class="lnb_sub">
+            	<li><a href="http://leesangdal.dothome.co.kr/qa" class="sm-link sm-link_padding-bottom sm-link3">FAQ</a></li>
+                <li><a href="http://leesangdal.dothome.co.kr/qa" class="sm-link sm-link_padding-bottom sm-link3">설명서</a></li>
+                <li><a href="http://leesangdal.dothome.co.kr/qa" class="sm-link sm-link_padding-bottom sm-link3">다운로드</a></li>
+                <li><a href="http://leesangdal.dothome.co.kr/qa" class="sm-link sm-link_padding-bottom sm-link3">제품 수리/부품</a></li>
+                <li><a href="http://leesangdal.dothome.co.kr/qa" class="sm-link sm-link_padding-bottom sm-link3">제품 구매 정보</a></li>
+            </ul>
+        </li>
+        <li><a href="#"><img src="images/zoom.png" alt="search"></a></li>
+    </ul>
+    
+    
+    <!--모바일 메뉴-->
+    <div class="mobile">
+    	<figure class="ham">
+        	<img src="images/ham.png" alt="menu" class="ham">
+        </figure>
+        <figure class="close">
+        	<img src="images/close.png" alt="close">
+        </figure>
+        <figure class="m_search">
+            <img src="images/zoom.png" alt="search">
+        </figure>
+        
+        <ul class="mobile_lnb">
+            <li><div class="section_item"><a href="#" class="sm-link sm-link_padding-bottom sm-link3"><span class="sm-link__label">제품<span style="font-size:15px; display:block; float:right; margin-left:10px; margin-top:15px; color:#1c3da6;">&#x25BC;</span></span></a></div>
+        	<ul class="mobile_lnb_sub">
+            	<li><a href="goods.html" class="sm-link sm-link_padding-bottom sm-link3">시계</a></li>
+                <li><a href="goods.html" class="sm-link sm-link_padding-bottom sm-link3">전자 악기</a></li>
+                <li><a href="goods.html" class="sm-link sm-link_padding-bottom sm-link3">디지털 카메라</a></li>
+                <li><a href="goods.html" class="sm-link sm-link_padding-bottom sm-link3">계산기</a></li>
+                <li><a href="goods.html" class="sm-link sm-link_padding-bottom sm-link3">기타</a></li>
+            </ul>
+        </li>
+        <li><div class="section_item"><a href="news.html" class="sm-link sm-link_padding-bottom sm-link3"><span class="sm-link__label">NEWS</span></a></div></li>
+        <li><div class="section_item"><a href="corporate.html" class="sm-link sm-link_padding-bottom sm-link3"><span class="sm-link__label">회사정보</span></a></div></li>
+        <li><div class="section_item"><a href="#" class="sm-link sm-link_padding-bottom sm-link3"><span class="sm-link__label">고객지원<span style="font-size:15px; display:block; float:right; margin-left:10px; margin-top:15px; color:#1c3da6;">&#x25BC;</span></span></a></div>
+        	<ul class="mobile_lnb_sub">
+            	<li><a href="http://leesangdal.dothome.co.kr/qa" class="sm-link sm-link_padding-bottom sm-link3">FAQ</a></li>
+                <li><a href="http://leesangdal.dothome.co.kr/qa" class="sm-link sm-link_padding-bottom sm-link3">설명서</a></li>
+                <li><a href="http://leesangdal.dothome.co.kr/qa" class="sm-link sm-link_padding-bottom sm-link3">다운로드</a></li>
+                <li><a href="http://leesangdal.dothome.co.kr/qa" class="sm-link sm-link_padding-bottom sm-link3">제품 수리/부품</a></li>
+                <li><a href="http://leesangdal.dothome.co.kr/qa" class="sm-link sm-link_padding-bottom sm-link3">제품 구매 정보</a></li>
+            </ul>
+        	</li>
+        </ul>
+    </div><!-- 모바일 메뉴 끝 -->
+</div> <!-- wrap end -->
+</header> <!-- header end -->
+
+
+<div id="contents">
+	<div class="slidershow middle">
+	    
+	    <div class="slides">
+	        <input type="radio" name="r" id="r1" checked>
+	        <input type="radio" name="r" id="r2">
+	        <input type="radio" name="r" id="r3">
+	        <input type="radio" name="r" id="r4">
+	        <input type="radio" name="r" id="r5">
+	        <div class="slide s1">
+	            <img src="images/slide1.png" alt="">
+	        </div>
+	        <div class="slide">
+	            <img src="images/slide2.png" alt="">
+	        </div>
+	        <div class="slide">
+	            <img src="images/slide3.png" alt="">
+	        </div>
+	        <div class="slide">
+	            <img src="images/slide4.png" alt="">
+	        </div>
+	        <div class="slide">
+	            <img src="images/slide5.png" alt="">
+	        </div>
+	        
+	        <div class="navigation">
+	            <label for="r1" class="dot"></label>
+	            <label for="r2" class="dot"></label>
+	            <label for="r3" class="dot"></label>
+	            <label for="r4" class="dot"></label>
+	            <label for="r5" class="dot"></label>
+	        </div>
+	    </div>
+	</div>   <!-- slidershow end -->
+
+
+
+<div id="list">
+    	<ul class="con_lnb">
+    	<li><div class="section_item"><a href="#"><span class="sm-link__label">시계</span></a></div>        	
+        </li>
+        <li><a href="#">전자악기</a></li>
+        <li><a href="#">디지털 카메라</a></li>
+        <li><a href="#">계산기</a></li>
+        <li><a href="#">기타</a>     
+        </li>
+    </ul>
+    <ul class="con_lnb_sub1">
+            	<li style="background-color: #1c3da6; color:#fff;"><a href="#">G-SHOCK</a></li>
+                <li><a href="#">BABY-G</a></li>
+                <li><a href="#">EDIFICE</a></li>
+                <li><a href="#">SHEEN</a></li>
+                <li><a href="#">PRO TREK</a></li>
+                <li><a href="#">드레스</a></li>
+                <li><a href="#">청소년</a></li>
+                <li><a href="#">패키지</a></li>
+            </ul>
+    
+    </div><!-- list end -->
+    
+    <!--goods-->
+    <div class="wrap">
+        <div class="goods">
+          <select id="sel1">
+              <option value="MR-G">MR-G</option>
+              <option value="오리진">오리진</option>
+              <option value="MUDMASTER">MUDMASTER</option>
+              <option value="프로페셔널">프로페셔널</option>
+              <option value="스탠다드 디지털">스탠다드 디지털</option>
+              <option value="G-SQUAD">G-SQUAD</option>
+          </select>
+          <select id="sel2">
+              <option value="최신순">최신순</option>
+              <option value="오래된순">오래된순</option>
+              <option value="구매순">구매순</option>
+              <option value="낮은가격순">낮은가격순</option>
+              <option value="높은가격순">높은가격순</option>
+          </select>
+
+           <h2>NEW - 2020.03</h2>
+           <div class="boxes">
+            <a href="detail.html">
+                <div class="box">
+                    <div class="sub_box">
+                    <img src="images/watch1.png" alt="watch">
+                    <img src="images/gshock.png" alt="gshock">
+                    <h4>DW-5679SU-3</h4>
+                    </div>  
+                </div>
+            </a>
+            <a href="detail.html">
+                <div class="box">
+                   <div class="sub_box">
+                    <img src="images/watch2.png" alt="watch">
+                    <img src="images/gshock.png" alt="gshock">
+                    <h4>DW-5679SU-3</h4> 
+                    </div>   
+                </div>
+            </a>
+               <a href="detail.html">
+                <div class="box">
+                    <div class="sub_box">
+                    <img src="images/watch3.png" alt="watch">
+                    <img src="images/gshock.png" alt="gshock">
+                    <h4>DW-5679SU-3</h4>
+                    </div>
+                </div>
+            </a>
+            <a href="detail.html">
+                <div class="box">
+                   <div class="sub_box">
+                    <img src="images/watch4.png" alt="watch">
+                    <img src="images/gshock.png" alt="gshock">
+                    <h4>DW-5679SU-3</h4> 
+                    </div>   
+                </div>
+            </a>
+            </div>
+
+            <div class="boxes">
+               <a href="detail.html">
+                <div class="box">
+                   <div class="sub_box">
+                    <img src="images/watch5.png" alt="watch">
+                    <img src="images/gshock.png" alt="gshock">
+                    <h4>DW-5679SU-3</h4>
+                    </div>
+                </div>
+                </a>
+               <a href="detail.html">
+                <div class="box">
+                   <div class="sub_box">
+                    <img src="images/watch6.png" alt="watch">
+                    <img src="images/gshock.png" alt="gshock">
+                    <h4>DW-5679SU-3</h4>
+                    </div>   
+                </div>
+                </a>
+               <a href="detail.html">
+                <div class="box">
+                   <div class="sub_box">
+                    <img src="images/watch7.png" alt="watch">
+                    <img src="images/gshock.png" alt="gshock">
+                    <h4>DW-5679SU-3</h4>   
+                    </div> 
+                </div>
+                </a>
+               <a href="detail.html">
+                <div class="box">
+                   <div class="sub_box">
+                    <img src="images/watch8.png" alt="watch">
+                    <img src="images/gshock.png" alt="gshock">
+                    <h4>DW-5679SU-3</h4>
+                    </div>  
+                </div>
+                </a>
+            </div>
+
+            <div class="boxes">   
+               <a href="detail.html">
+                <div class="box">
+                   <div class="sub_box">
+                    <img src="images/watch1.png" alt="watch">
+                    <img src="images/gshock.png" alt="gshock">
+                    <h4>DW-5679SU-3</h4>
+                    </div> 
+                </div>
+                </a>
+                <a href="detail.html">
+                <div class="box">
+                   <div class="sub_box">
+                    <img src="images/watch2.png" alt="watch">
+                    <img src="images/gshock.png" alt="gshock">
+                    <h4>DW-5679SU-3</h4>
+                    </div>
+                </div>
+                </a>
+                <a href="detail.html">
+                <div class="box">
+                   <div class="sub_box">
+                    <img src="images/watch3.png" alt="watch">
+                    <img src="images/gshock.png" alt="gshock">
+                    <h4>DW-5679SU-3</h4>
+                    </div>   
+                </div>
+                </a>
+                <a href="detail.html">
+                <div class="box">
+                   <div class="sub_box">
+                    <img src="images/watch4.png" alt="watch">
+                    <img src="images/gshock.png" alt="gshock">
+                    <h4>DW-5679SU-3</h4>
+                    </div>
+                </div>
+            </a>
+            </div>
+
+            <div class="boxes">
+            <a href="detail.html">
+                <div class="box">
+                   <div class="sub_box">
+                    <img src="images/watch5.png" alt="watch">
+                    <img src="images/gshock.png" alt="gshock">
+                    <h4>DW-5679SU-3</h4>
+                    </div> 
+                </div>
+            </a>
+            <a href="detail.html">
+                <div class="box">
+                   <div class="sub_box">
+                    <img src="images/watch6.png" alt="watch">
+                    <img src="images/gshock.png" alt="gshock">
+                    <h4>DW-5679SU-3</h4>
+                    </div>    
+                </div>
+            </a>
+            </div>
+        </div><!--goods end-->
+    </div><!--wrap end-->
+    <div class="wrap">
+        <ul class="page">
+           <li><a><span style="font-size: 10px; display:block; margin-top:5px;">&#x25C0;</span></a></li>
+           <li><a>1</a></li>
+           <li><a>2</a></li>
+           <li><a>3</a></li>
+           <li><a>4</a></li>
+           <li><a><span style="font-size: 10px; display:block; margin-top:5px;">&#x25B6;</span></a></li>
+       </ul>
+    </div>
+       
+ 
+    
+    <div class="top">
+        <a href="#"><img src="images/top.png" alt="top"></a>
+    </div>
+</div> <!-- contents end -->
+
+
+<!-- search popup-->
+<div class="s_pop">
+    <div class="s_pop_bg"></div>
+    <a><img src="images/close.png" alt="close" style="position: absolute; top:0; right:0; z-index: 9999;" class="close"></a>
+    <input>
+    <a><img src="images/zoom2.png" alt="search" class="search2"></a>
+</div>
+<!-- search popup end -->
+
+
+<footer>
+    <div class="wrap">
+        <div class="footer_bg">
+           <div class="f_logo">
+            <a href="#"><img src="images/f_logo.png" alt="casio"></a>
+           </div>
+
+            <div class="footer_left">
+                <p>© 2020 CASIO COMPUTER CO., LTD.</p>
+                <div class="fl_2">
+                    <a><i>Privacy Policy</i></a>
+                    <span style="margin:0 3px;">|</span>
+                    <a><i>Terms of Use</i></a>
+                    <span style="margin:0 3px;">|</span>
+                    <a>사이트 맵</a>
+                </div>
+            </div>
+
+            <div class="footer_right">
+                <p style="margin-bottom: -15px;">KOREA</p>
+                <ul class="country">
+                    <li><a><img src="images/globe.png" alt="language"></a></li>
+                    <li><i>국가 또는 지역 선택</i></li>
+                </ul>
+            </div>
+            
+            <p class="copyright">Copyright © CASIO - All Rights Reserved.</p>
+        </div><!--footer_bg end-->
+    </div><!--wrap end-->
+</footer><!-- footer end -->
+
+
+
+
+<script src="slick/slick.min.js"></script>
+<script>
+$(document).ready(function(){
+	//lnb
+	$(".lnb li").mouseover(function(){
+		$(this).children(".lnb_sub").stop().slideDown();	
+	});
+	
+	$(".lnb li").mouseleave(function(){
+		$(this).children(".lnb_sub").stop().slideUp();	
+	});
+    
+	$(".lnb>li:last-child").click(function(){
+        $(".s_pop").show();
+    })
+    
+    $(".close").click(function(){
+        $(".s_pop").hide();
+    })
+    
+    
+    
+    //ham
+	$(".ham").click(function(){
+		$(".mobile_lnb").stop().slideDown('slow');	
+		$(".ham").hide('slow');
+		$(".close").show('slow');
+	});
+	
+	$(".close").click(function(){
+		$(".mobile_lnb").stop().slideUp('slow');	
+		$(".close").hide('slow');
+		$(".ham").show('slow');
+	});
+    
+    
+    //mobile_lnb
+	$(".mobile_lnb li").mouseover(function(){
+		$(this).children(".mobile_lnb_sub").stop().slideDown();	
+	});
+	
+	$(".mobile_lnb_sub li").mouseleave(function(){
+		$(this).children(".mobile_lnb_sub").stop().slideUp();	
+	});
+
+});
+
+
+</script>
+</body>
+</html>
